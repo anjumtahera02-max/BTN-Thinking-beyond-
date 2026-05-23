@@ -43,7 +43,6 @@
         </div>
 
         <ul>
-
             <li>🏠 Home</li>
             <li>🧠 Psychology</li>
             <li>👩 Women & Society</li>
@@ -52,7 +51,6 @@
             <li>💬 Public Discussions</li>
             <li>📚 Articles</li>
             <li>⚙ Settings</li>
-
         </ul>
 
     </aside>
@@ -69,41 +67,49 @@
             <h2>Beyond The Noise</h2>
 
             <p>
-                Thinking Beyond Society, Psychology,
-                Governance & Human Behaviour
+                Thinking Beyond Society,
+                Psychology, Governance &
+                Human Behaviour
             </p>
 
         </section>
 
-        <!-- SEARCH BAR -->
+        <!-- SEARCH -->
         <section class="search-section">
 
             <input
                 type="text"
-                placeholder="Search topics..."
                 class="search-box"
+                placeholder="Search topics..."
             >
 
         </section>
 
-        <!-- ADD TOPIC BUTTON -->
+        <!-- ADD TOPIC -->
         <section class="topic-controls">
 
-            <button id="open-topic-form" class="add-topic-btn">
+            <button
+                id="open-topic-form"
+                class="add-topic-btn">
+
                 + Add Topic
+
             </button>
 
         </section>
 
         <!-- TOPIC FORM -->
-        <section id="topic-form" class="topic-form hidden">
+        <section
+            id="topic-form"
+            class="topic-form"
+            style="display:none;">
 
             <h3>Add New Topic</h3>
 
             <input
                 type="text"
                 id="topic-title"
-                placeholder="Enter topic title"
+                placeholder="Topic title"
             >
 
             <select id="topic-category">
@@ -118,7 +124,7 @@
 
             <textarea
                 id="topic-content"
-                placeholder="Write article or thoughts..."
+                placeholder="Write your article..."
             ></textarea>
 
             <button id="publish-btn">
@@ -127,16 +133,97 @@
 
         </section>
 
-        <!-- ARTICLES SECTION -->
-        <section id="articles" class="articles">
+        <!-- ARTICLES -->
+        <section
+            id="articles"
+            class="articles">
 
-            <!-- Topics added later will appear here -->
+            <!-- SAMPLE ARTICLE -->
+
+            <div class="article-card">
+
+                <div class="article-header">
+
+                    <h3>
+                        Leadership is also Psychological
+                    </h3>
+
+                    <button class="delete-btn">
+                        🗑
+                    </button>
+
+                </div>
+
+                <small class="category">
+                    Psychology
+                </small>
+
+                <div class="article-meta">
+
+                    <span class="timestamp">
+                        Just now
+                    </span>
+
+                </div>
+
+                <p>
+                    Leadership is influenced by trust,
+                    emotions, persuasion and social
+                    behaviour.
+                </p>
+
+                <!-- ACTION BAR -->
+                <div class="article-actions">
+
+                    <button class="like-btn">
+                        👍 <span class="like-count">
+                            0
+                        </span>
+                    </button>
+
+                    <button class="toggle-comments-btn">
+
+                        💬
+                        <span class="comment-count">
+                            0
+                        </span>
+
+                        Comments
+
+                    </button>
+
+                </div>
+
+                <!-- COMMENT SECTION -->
+                <div class="comment-section">
+
+                    <textarea
+                        class="comment-input"
+                        placeholder="Write a comment..."
+                    ></textarea>
+
+                    <button class="comment-btn">
+                        Post Comment
+                    </button>
+
+                    <!-- COMMENTS LIST -->
+                    <div class="comments-container">
+
+                        <!-- COMMENTS WILL APPEAR HERE -->
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
 
     </main>
 
+    <!-- JS -->
     <script src="script.js"></script>
 
 </body>
-              </html>
+
+    </html>
