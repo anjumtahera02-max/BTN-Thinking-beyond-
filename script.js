@@ -14,29 +14,40 @@ document.getElementById("sidebar");
 const overlay =
 document.getElementById("overlay");
 
+menuBtn.addEventListener(
+"click",
+() => {
 
-menuBtn.addEventListener("click", () => {
+    sidebar.classList.add(
+        "active"
+    );
 
-    sidebar.classList.add("active");
-    overlay.classList.add("active");
+    overlay.classList.add(
+        "active"
+    );
 
 });
 
 function closeMenu(){
 
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
+    sidebar.classList.remove(
+        "active"
+    );
+
+    overlay.classList.remove(
+        "active"
+    );
 
 }
 
 closeBtn.addEventListener(
-    "click",
-    closeMenu
+"click",
+closeMenu
 );
 
 overlay.addEventListener(
-    "click",
-    closeMenu
+"click",
+closeMenu
 );
 
 
@@ -55,26 +66,25 @@ document.getElementById(
 );
 
 openTopicForm.addEventListener(
-    "click",
-    () => {
+"click",
+() => {
 
-        if(
-            topicForm.style.display
-            === "block"
-        ){
+    if(
+        topicForm.style.display
+        === "block"
+    ){
 
-            topicForm.style.display =
-            "none";
+        topicForm.style.display =
+        "none";
 
-        }else{
+    }else{
 
-            topicForm.style.display =
-            "block";
-
-        }
+        topicForm.style.display =
+        "block";
 
     }
-);
+
+});
 
 
 // ======================
@@ -132,7 +142,9 @@ publishBtn.addEventListener(
     }
 
     const article =
-    document.createElement("div");
+    document.createElement(
+        "div"
+    );
 
     article.classList.add(
         "article-card"
@@ -169,18 +181,24 @@ publishBtn.addEventListener(
     <div class="article-actions">
 
         <button class="like-btn">
+
             👍
             <span class="like-count">
                 0
             </span>
+
         </button>
 
         <button
-        class="toggle-comments-btn">
+        class=
+        "toggle-comments-btn">
 
             💬
-            <span class="comment-count">
+            <span class=
+            "comment-count">
+
                 0
+
             </span>
 
             Comments
@@ -192,20 +210,23 @@ publishBtn.addEventListener(
     <div class="comment-section">
 
         <textarea
-        class="comment-input"
+        class=
+        "comment-input"
         placeholder=
         "Write a comment..."
         ></textarea>
 
         <button
-        class="comment-btn">
+        class=
+        "comment-btn">
 
             Post Comment
 
         </button>
 
         <div
-        class="comments-container">
+        class=
+        "comments-container">
 
         </div>
 
@@ -216,6 +237,8 @@ publishBtn.addEventListener(
     articles.prepend(article);
 
     setupArticle(article);
+
+    saveArticles();
 
     topicTitle.value = "";
     topicContent.value = "";
@@ -244,7 +267,10 @@ function setupArticle(article){
         ".like-count"
     );
 
-    let likes = 0;
+    let likes =
+    parseInt(
+        likeCount.innerText
+    ) || 0;
 
     likeBtn.addEventListener(
     "click",
@@ -255,7 +281,10 @@ function setupArticle(article){
         likeCount.innerText =
         likes;
 
+        saveArticles();
+
     });
+
 
     // DELETE ARTICLE
 
@@ -270,7 +299,10 @@ function setupArticle(article){
 
         article.remove();
 
+        saveArticles();
+
     });
+
 
     // COMMENTS
 
@@ -294,7 +326,10 @@ function setupArticle(article){
         ".comment-count"
     );
 
-    let totalComments = 0;
+    let totalComments =
+    parseInt(
+        commentCount.innerText
+    ) || 0;
 
     commentBtn.addEventListener(
     "click",
@@ -321,9 +356,11 @@ function setupArticle(article){
 
         comment.innerHTML = `
 
-        <div class="comment-top">
+        <div class=
+        "comment-top">
 
-            <small class=
+            <small
+            class=
             "comment-time">
 
                 just now
@@ -337,7 +374,8 @@ function setupArticle(article){
         </p>
 
         <button
-        class="reply-btn">
+        class=
+        "reply-btn">
 
             ↩️ Reply
 
@@ -353,11 +391,15 @@ function setupArticle(article){
 
         `;
 
-        commentsContainer.appendChild(
+        commentsContainer
+        .appendChild(
             comment
         );
 
-        commentInput.value = "";
+        commentInput.value =
+        "";
+
+        saveArticles();
 
         // DELETE COMMENT
 
@@ -377,6 +419,8 @@ function setupArticle(article){
 
             commentCount.innerText =
             totalComments;
+
+            saveArticles();
 
         });
 
@@ -403,8 +447,14 @@ function setupArticle(article){
                     "p"
                 );
 
+                replyText.classList
+                .add(
+                    "reply-text"
+                );
+
                 replyText.style
-                .marginLeft = "20px";
+                .marginLeft =
+                "20px";
 
                 replyText.innerText =
                 "↪ " + reply;
@@ -413,11 +463,14 @@ function setupArticle(article){
                     replyText
                 );
 
+                saveArticles();
+
             }
 
         });
 
     });
+
 
     // TOGGLE COMMENTS
 
@@ -479,14 +532,17 @@ searchBox.addEventListener(
         ".article-card"
     );
 
-    cards.forEach((card)=>{
+    cards.forEach(
+    (card)=>{
 
         const text =
         card.innerText
         .toLowerCase();
 
         if(
-            text.includes(value)
+            text.includes(
+                value
+            )
         ){
 
             card.style.display =
