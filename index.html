@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTN — Beyond The Noise</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="top-header">
+
+        <button id="menu-btn" class="menu-btn">
+            ☰
+        </button>
+
+        <div class="logo-section">
+            <h1>BTN</h1>
+            <p>Thinking Beyond</p>
+        </div>
+
+        <button class="search-btn">
+            🔍
+        </button>
+
+    </header>
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+
+        <div class="sidebar-top">
+
+            <h2>Menu</h2>
+
+            <button id="close-btn">
+                ✕
+            </button>
+
+        </div>
+
+        <ul>
+
+            <li>🏠 Home</li>
+            <li>🧠 Psychology</li>
+            <li>👩 Women & Society</li>
+            <li>🏛 Governance</li>
+            <li>🌍 Environment</li>
+            <li>💬 Public Discussions</li>
+            <li>📚 Articles</li>
+            <li>⚙ Settings</li>
+
+        </ul>
+
+    </aside>
+
+    <!-- OVERLAY -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HERO -->
+        <section class="hero-section">
+
+            <h2>Beyond The Noise</h2>
+
+            <p>
+                Thinking Beyond Society, Psychology,
+                Governance & Human Behaviour
+            </p>
+
+        </section>
+
+        <!-- SEARCH BAR -->
+        <section class="search-section">
+
+            <input
+                type="text"
+                placeholder="Search topics..."
+                class="search-box"
+            >
+
+        </section>
+
+        <!-- ADD TOPIC BUTTON -->
+        <section class="topic-controls">
+
+            <button id="open-topic-form" class="add-topic-btn">
+                + Add Topic
+            </button>
+
+        </section>
+
+        <!-- TOPIC FORM -->
+        <section id="topic-form" class="topic-form hidden">
+
+            <h3>Add New Topic</h3>
+
+            <input
+                type="text"
+                id="topic-title"
+                placeholder="Enter topic title"
+            >
+
+            <select id="topic-category">
+
+                <option>Psychology</option>
+                <option>Women & Society</option>
+                <option>Governance</option>
+                <option>Environment</option>
+                <option>Public Discussion</option>
+
+            </select>
+
+            <textarea
+                id="topic-content"
+                placeholder="Write article or thoughts..."
+            ></textarea>
+
+            <button id="publish-btn">
+                Publish Topic
+            </button>
+
+        </section>
+
+        <!-- ARTICLES SECTION -->
+        <section id="articles" class="articles">
+
+            <!-- Topics added later will appear here -->
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+              </html>
