@@ -1,10 +1,10 @@
-// MENU ELEMENTS
+// MENU
 const menuBtn = document.getElementById("menu-btn");
 const closeBtn = document.getElementById("close-btn");
 const sidebar = document.getElementById("sidebar");
 const overlay = document.getElementById("overlay");
 
-// TOPIC ELEMENTS
+// TOPIC FORM
 const openTopicForm = document.getElementById("open-topic-form");
 const topicForm = document.getElementById("topic-form");
 const publishBtn = document.getElementById("publish-btn");
@@ -19,35 +19,35 @@ const articles = document.getElementById("articles");
 const searchBox = document.querySelector(".search-box");
 
 
-// =======================
+// =====================
 // MENU OPEN
-// =======================
+// =====================
 menuBtn.addEventListener("click", () => {
     sidebar.classList.add("active");
     overlay.classList.add("active");
 });
 
 
-// =======================
+// =====================
 // MENU CLOSE
-// =======================
-closeBtn.addEventListener("click", () => {
+// =====================
+function closeMenu() {
     sidebar.classList.remove("active");
     overlay.classList.remove("active");
-});
+}
 
-overlay.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
-});
+closeBtn.addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
 
 
-// =======================
-// TOGGLE TOPIC FORM
-// =======================
+// =====================
+// OPEN/CLOSE TOPIC FORM
+// =====================
 openTopicForm.addEventListener("click", () => {
 
-    if (topicForm.style.display === "block") {
+    if (
+        topicForm.style.display === "block"
+    ) {
         topicForm.style.display = "none";
     } else {
         topicForm.style.display = "block";
@@ -56,9 +56,9 @@ openTopicForm.addEventListener("click", () => {
 });
 
 
-// =======================
+// =====================
 // PUBLISH ARTICLE
-// =======================
+// =====================
 publishBtn.addEventListener("click", () => {
 
     const title = topicTitle.value.trim();
@@ -71,19 +71,41 @@ publishBtn.addEventListener("click", () => {
     }
 
     const article = document.createElement("div");
+
     article.classList.add("article-card");
 
     article.innerHTML = `
         <h3>${title}</h3>
+
         <small>${category}</small>
+
         <p>${content}</p>
-        <button class="read-btn">
-            Read More
-        </button>
+
+        <div style="margin-top:15px;">
+            <button class="read-btn">
+                Read More
+            </button>
+
+            <button class="delete-btn">
+                🗑 Delete
+            </button>
+        </div>
     `;
 
+    // DELETE ARTICLE
+    const deleteBtn =
+        article.querySelector(".delete-btn");
+
+    deleteBtn.addEventListener("click", () => {
+
+        article.remove();
+
+    });
+
+    // ADD ARTICLE TO TOP
     articles.prepend(article);
 
+    // CLEAR FORM
     topicTitle.value = "";
     topicContent.value = "";
 
@@ -91,22 +113,28 @@ publishBtn.addEventListener("click", () => {
 });
 
 
-// =======================
+// =====================
 // SEARCH
-// =======================
-searchBox.addEventListener("input", () => {
+// =====================
+searchBox.addEventListener("keyup", () => {
 
-    const value = searchBox.value.toLowerCase();
+    const value =
+        searchBox.value.toLowerCase();
 
-    const cards = document.querySelectorAll(".article-card");
+    const cards =
+        document.querySelectorAll(".article-card");
 
-    cards.forEach(card => {
+    cards.forEach((card) => {
 
-        const text = card.innerText.toLowerCase();
+        const text =
+            card.innerText.toLowerCase();
 
         if (text.includes(value)) {
+
             card.style.display = "block";
+
         } else {
+
             card.style.display = "none";
         }
 
